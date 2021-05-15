@@ -1,4 +1,5 @@
-﻿using HtmlParser.Services;
+﻿using HtmlParser.HtmlLoaderService;
+using HtmlParser.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,10 @@ namespace HtmlParser
 {
     public class AbstractHtmlParser<TEntity>
     {
-        private IHtmlScraperService htmlScraperService;
+        private IHtmlLoaderService htmlScraperService;
         private IHtmlParserService<TEntity> htmlParserService;
 
-        public AbstractHtmlParser(IHtmlParserService<TEntity> htmlParserService, IHtmlScraperService htmlScraperService) 
+        public AbstractHtmlParser(IHtmlParserService<TEntity> htmlParserService, IHtmlLoaderService htmlScraperService) 
         {
             this.htmlParserService = htmlParserService;
             if (this.htmlParserService == null) 
