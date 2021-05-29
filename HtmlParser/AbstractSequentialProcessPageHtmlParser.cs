@@ -8,7 +8,7 @@ namespace HtmlParser
     {
         private PageHtmlParserConfiguration _configuration;
 
-        public AbstractSequentialProcessPageHtmlParser(IHtmlLoaderService htmlLoaderService, PageHtmlParserConfiguration configuration) : base(htmlLoaderService) 
+        public AbstractSequentialProcessPageHtmlParser(IHtmlLoaderService htmlLoaderService, PageHtmlParserConfiguration configuration) : base(htmlLoaderService)
         {
             _configuration = configuration;
         }

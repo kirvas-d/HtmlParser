@@ -8,14 +8,14 @@ namespace HtmlParser
     {
         protected IHtmlLoaderService _htmlLoaderService;
 
-        public AbstractHtmlParser(IHtmlLoaderService htmlloaderService) 
+        public AbstractHtmlParser(IHtmlLoaderService htmlLoaderService) 
         {
-            if (_htmlLoaderService == null)
+            if (htmlLoaderService == null)
             {
-                throw new Exception("HtmlParserService равен null");
+                throw new Exception("HtmlLoaderService равен null");
             }
 
-            _htmlLoaderService = htmlloaderService;
+            _htmlLoaderService = htmlLoaderService;
         }
 
         public abstract IEnumerable<TEntity> GetEntitys();
