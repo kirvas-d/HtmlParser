@@ -1,18 +1,17 @@
-﻿using HtmlParser.HtmlLoaderService;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace HtmlParserProduct.HTMLLoaderService
+namespace HtmlParser.HtmlLoaderService
 {
-    public class SeleniumHTMLLoaderService : IHtmlLoaderServiceAsync, IDisposable
+    public class SeleniumHtmlLoaderService : IHtmlLoaderServiceAsync, IDisposable
     {
         private readonly IWebDriver _driver;
         private bool _isDispose;
 
-        public SeleniumHTMLLoaderService(IWebDriver driver) 
+        public SeleniumHtmlLoaderService(IWebDriver driver) 
         {
             this._driver = driver;
             _isDispose = false;
@@ -46,13 +45,11 @@ namespace HtmlParserProduct.HTMLLoaderService
 
         public void Dispose()
         {
-            if (_isDispose) 
+            if (!_isDispose) 
             {
-                return;
+                _driver.Quit();
+                _isDispose = true;
             }
-
-            _driver.Quit();
-            _isDispose = true;
         }
     }
 }

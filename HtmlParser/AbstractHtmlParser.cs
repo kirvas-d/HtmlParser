@@ -1,37 +1,23 @@
 ﻿using HtmlParser.HtmlLoaderService;
-using HtmlParser.Services;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HtmlParser
 {
-    public class AbstractHtmlParser<TEntity>
+    public abstract class AbstractHtmlParser<TEntity>
     {
-        private IHtmlLoaderService htmlScraperService;
-        private IHtmlParserService<TEntity> htmlParserService;
+        protected IHtmlLoaderService _htmlLoaderService;
 
-        public AbstractHtmlParser(IHtmlParserService<TEntity> htmlParserService, IHtmlLoaderService htmlScraperService) 
+        public AbstractHtmlParser(IHtmlLoaderService htmlloaderService) 
         {
-            this.htmlParserService = htmlParserService;
-            if (this.htmlParserService == null) 
+            if (_htmlLoaderService == null)
             {
                 throw new Exception("HtmlParserService равен null");
             }
 
-            this.htmlScraperService = htmlScraperService;
-            if (this.htmlScraperService == null)
-            {
-                throw new Exception("HtmlParserService равен null");
-            }
+            _htmlLoaderService = htmlloaderService;
         }
 
-        public IEnumerable<TEntity> GetEntity() 
-        {
-            throw new Exception();
-        }
-
+        public abstract IEnumerable<TEntity> GetEntitys();
     }
 }
