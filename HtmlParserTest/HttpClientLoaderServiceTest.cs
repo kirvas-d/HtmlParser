@@ -1,5 +1,4 @@
 using HtmlParser.HtmlLoaderService;
-using HtmlParserProduct.HTMLLoaderService;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -71,7 +70,7 @@ namespace HtmlParserTest
             string responseBody = "<html><head></head><body><h1>Hello</h1></body></html>";
             InitMockServerHtmlResponse(server, responseBody);
 
-            using (SeleniumHTMLLoaderService seleniumHtmlLoaderService = new SeleniumHTMLLoaderService(webDriver))
+            using (SeleniumHtmlLoaderService seleniumHtmlLoaderService = new SeleniumHtmlLoaderService(webDriver))
             {
                 string actualResponse = seleniumHtmlLoaderService.GetHtmlBody(baseUrl);
                 Assert.Equal(responseBody, actualResponse);
@@ -84,7 +83,7 @@ namespace HtmlParserTest
             string responseBody = "<html><head></head><body><h1>Hello</h1></body></html>";
             InitMockServerHtmlResponse(server, responseBody);
 
-            using (SeleniumHTMLLoaderService seleniumHtmlLoaderService = new SeleniumHTMLLoaderService(webDriver))
+            using (SeleniumHtmlLoaderService seleniumHtmlLoaderService = new SeleniumHtmlLoaderService(webDriver))
             {
                 string actualResponse = await seleniumHtmlLoaderService.GetHtmlBodyAsync(baseUrl);
                 Assert.Equal(responseBody, actualResponse);

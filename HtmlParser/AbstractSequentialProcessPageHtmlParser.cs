@@ -27,7 +27,7 @@ namespace HtmlParser
             while (true) 
             {
                 string htmlBody = _htmlLoaderService.GetHtmlBody(GetPageUri(currentPageNumber));
-                List<TEntity> entities = (List<TEntity>)GetEntityFromPage(htmlBody);
+                List<TEntity> entities = GetEntityFromPage(htmlBody).ToList();
 
                 foreach (TEntity entity in entities) 
                 {
