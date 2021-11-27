@@ -25,33 +25,8 @@ namespace HtmlParserTest
             });
         }
 
-
         [Fact]
-        public void TestHTTPClient()
-        {
-            string responseBody = "<html><body><h1>Hello</h1></body></html>";
-            InitMockServerHtmlResponse(_wireMockServer, responseBody);
-
-            HttpClientLoaderService httpClient = new HttpClientLoaderService();
-            string actualResponse = httpClient.GetHtmlBody(_baseUrl);
-
-            Assert.Equal(responseBody, actualResponse);
-        }
-
-        [Fact]
-        public async void TestHTTPClientAsync()
-        {
-            string responseBody = "<html><body><h1>Hello</h1></body></html>";
-            InitMockServerHtmlResponse(_wireMockServer, responseBody);
-
-            HttpClientLoaderService httpClient = new HttpClientLoaderService();
-            string actualResponse = await httpClient.GetHtmlBodyAsync(_baseUrl);
-
-            Assert.Equal(responseBody, actualResponse);
-        }
-
-        [Fact]
-        public void TestLocalSeleniumLoaderService()
+        public void TestGetHtmlBodyMethod()
         {
             string responseBody = "<html><head></head><body><h1>Hello</h1></body></html>";
             InitMockServerHtmlResponse(_wireMockServer, responseBody);
@@ -62,7 +37,7 @@ namespace HtmlParserTest
         }
 
         [Fact]
-        public async void TestLocalSeleniumLoaderServiceAsync()
+        public async void TestGetHtmlBodyAsyncMethod()
         {
             string responseBody = "<html><head></head><body><h1>Hello</h1></body></html>";
             InitMockServerHtmlResponse(_wireMockServer, responseBody);
