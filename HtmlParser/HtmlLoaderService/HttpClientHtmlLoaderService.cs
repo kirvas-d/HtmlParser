@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HtmlParser.HtmlLoaderService
 {
-    public class HttpClientLoaderService : IHtmlLoaderServiceAsync
+    public class HttpClientHtmlLoaderService : IHtmlLoaderServiceAsync
     {
         public string GetHtmlBody(string uri)
         {
