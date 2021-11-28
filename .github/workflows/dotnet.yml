@@ -22,7 +22,7 @@ jobs:
     - name: Build
       run: |
         dotnet tool install --global Microsoft.Playwright.CLI
-        dotnet add package Microsoft.Playwright
+        dotnet add HtmlParser package Microsoft.Playwright
         dotnet build --no-restore
         playwright install
     - name: Test
