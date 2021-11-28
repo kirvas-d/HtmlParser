@@ -18,7 +18,10 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Restore dependencies
-      run: dotnet restore
+      run: | 
+        dotnet tool install --global Microsoft.Playwright.CLI
+        playwright install
+        dotnet restore
     - name: Build
       run: dotnet build --no-restore
     - name: Test
